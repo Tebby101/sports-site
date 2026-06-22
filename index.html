@@ -1,134 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sports Hub Pro</title>
+  <title>Live Sports API</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial;
-      background: #070b16;
+      background: #0b1220;
       color: white;
+      text-align: center;
     }
 
-    /* TOP HEADER */
     .top {
       background: #1d4ed8;
-      padding: 18px;
-      text-align: center;
-      font-size: 22px;
+      padding: 15px;
+      font-size: 20px;
       font-weight: bold;
     }
 
-    /* NAV BAR */
-    .nav {
-      display: flex;
-      justify-content: space-around;
-      background: #111827;
-      padding: 10px;
-      font-size: 13px;
-    }
-
-    .nav a {
-      color: white;
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-    }
-
-    .nav a:hover {
-      background: #1f2937;
-    }
-
-    /* MAIN LAYOUT */
-    .container {
-      padding: 15px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    /* LIVE BADGE */
-    .live {
-      background: red;
-      padding: 3px 8px;
-      font-size: 11px;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    /* MATCH CARD */
     .card {
       background: #1f2937;
-      margin: 12px 0;
-      padding: 14px;
-      border-radius: 12px;
-      border-left: 4px solid #3b82f6;
+      margin: 10px;
+      padding: 12px;
+      border-radius: 10px;
     }
-
-    .teams {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      margin-top: 6px;
-    }
-
-    .score {
-      color: #22c55e;
-      font-weight: bold;
-    }
-
-    .section {
-      margin-top: 20px;
-      font-size: 13px;
-      opacity: 0.8;
-    }
-
   </style>
-
 </head>
 
 <body>
 
-  <div class="top">🏆 SPORTS HUB PRO</div>
+  <div class="top">🏆 LIVE SPORTS API</div>
 
-  <div class="nav">
-    <a href="index.html">Home</a>
-    <a href="football.html">Football</a>
-    <a href="basketball.html">Basketball</a>
-    <a href="ufc.html">UFC</a>
-  </div>
+  <h3>Loading live matches...</h3>
 
-  <div class="container">
+  <div id="matches"></div>
 
-    <div class="section">🔥 LIVE MATCHES</div>
+  <script>
+    async function loadData() {
+      try {
+        const res = await fetch("https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d=2024-01-01&s=Soccer");
+        const data = await res.json();
 
-    <div class="card">
-      <div class="live">LIVE</div>
-      <div class="teams">
-        <span>Man United</span>
-        <span class="score">2 - 1</span>
-        <span>Liverpool</span>
-      </div>
-    </div>
+        let html = "";
 
-    <div class="card">
-      <div class="live">LIVE</div>
-      <div class="teams">
-        <span>Lakers</span>
-        <span class="score">98 - 95</span>
-        <span>Bulls</span>
-      </div>
-    </div>
+        if (data.events) {
+          data.events.forEach(event => {
+            html += `
+              <div class="card">
+                <h3>${event.strEvent}</h3>
+                <p>${event.strLeague}</p>
+                <p>${event.dateEvent}</p>
+              </div>
+            `;
+          });
+        } else {
+          html = "<p>No live data found</p>";
+        }
 
-    <div class="section">⏰ UPCOMING EVENTS</div>
+        document.getElementById("matches").innerHTML = html;
 
-    <div class="card">
-      <div class="live" style="background:orange;">SOON</div>
-      UFC Main Event Tonight
-    </div>
+      } catch (error) {
+        document.getElementById("matches").innerHTML = "<p>Error loading API</p>";
+      }
+    }
 
-  </div>
+    loadData();
+  </script>
 
 </body>
 </html>
