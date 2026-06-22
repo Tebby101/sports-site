@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sports Home</title>
+  <title>Sports App</title>
+
   <style>
     body {
       margin: 0;
@@ -10,11 +11,11 @@
       color: white;
     }
 
-    .topbar {
+    .header {
       background: #1d4ed8;
-      padding: 15px;
+      padding: 18px;
       text-align: center;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
     }
 
@@ -28,21 +29,42 @@
     .menu a {
       color: white;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
+    }
+
+    .container {
+      padding: 15px;
     }
 
     .card {
       background: #1f2937;
-      margin: 15px;
+      margin: 12px 0;
       padding: 15px;
-      border-radius: 10px;
+      border-radius: 12px;
+      border-left: 5px solid #3b82f6;
+    }
+
+    .football { border-left-color: #22c55e; }
+    .basketball { border-left-color: #f97316; }
+    .ufc { border-left-color: #ef4444; }
+
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .small {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-top: 5px;
     }
   </style>
+
 </head>
 
 <body>
 
-  <div class="topbar">🏆 My Sports App</div>
+  <div class="header">🏆 Sports Dashboard</div>
 
   <div class="menu">
     <a href="index.html">Home</a>
@@ -51,8 +73,23 @@
     <a href="ufc.html">UFC</a>
   </div>
 
-  <div class="card">
-    Welcome to your sports website 🔥
+  <div class="container">
+
+    <div class="card football">
+      <div class="title">⚽ Football Live</div>
+      <div class="small">No live matches yet</div>
+    </div>
+
+    <div class="card basketball">
+      <div class="title">🏀 Basketball Updates</div>
+      <div class="small">Games loading soon</div>
+    </div>
+
+    <div class="card ufc">
+      <div class="title">🥊 UFC News</div>
+      <div class="small">Fights & events</div>
+    </div>
+
   </div>
 
 </body>
