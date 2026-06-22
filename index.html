@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sports App</title>
+  <title>Sports Live</title>
 
   <style>
     body {
@@ -36,6 +36,15 @@
       padding: 15px;
     }
 
+    .live {
+      background: #ef4444;
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
     .card {
       background: #1f2937;
       margin: 12px 0;
@@ -44,19 +53,26 @@
       border-left: 5px solid #3b82f6;
     }
 
-    .football { border-left-color: #22c55e; }
-    .basketball { border-left-color: #f97316; }
-    .ufc { border-left-color: #ef4444; }
+    .match {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-top: 8px;
+    }
 
-    .title {
-      font-size: 16px;
+    .team {
+      font-weight: bold;
+    }
+
+    .score {
+      color: #22c55e;
       font-weight: bold;
     }
 
     .small {
       font-size: 12px;
       opacity: 0.7;
-      margin-top: 5px;
+      margin-top: 6px;
     }
   </style>
 
@@ -64,7 +80,7 @@
 
 <body>
 
-  <div class="header">🏆 Sports Dashboard</div>
+  <div class="header">🏆 LIVE SPORTS HUB</div>
 
   <div class="menu">
     <a href="index.html">Home</a>
@@ -75,19 +91,40 @@
 
   <div class="container">
 
-    <div class="card football">
-      <div class="title">⚽ Football Live</div>
-      <div class="small">No live matches yet</div>
+    <div class="card">
+      <div class="live">LIVE</div>
+
+      <div class="match">
+        <div class="team">Man United</div>
+        <div class="score">2 - 1</div>
+        <div class="team">Liverpool</div>
+      </div>
+
+      <div class="small">Premier League • 75 min</div>
     </div>
 
-    <div class="card basketball">
-      <div class="title">🏀 Basketball Updates</div>
-      <div class="small">Games loading soon</div>
+    <div class="card">
+      <div class="live">LIVE</div>
+
+      <div class="match">
+        <div class="team">Lakers</div>
+        <div class="score">98 - 95</div>
+        <div class="team">Bulls</div>
+      </div>
+
+      <div class="small">NBA • 4th Quarter</div>
     </div>
 
-    <div class="card ufc">
-      <div class="title">🥊 UFC News</div>
-      <div class="small">Fights & events</div>
+    <div class="card">
+      <div class="live">UPCOMING</div>
+
+      <div class="match">
+        <div class="team">UFC Fight Night</div>
+        <div class="score">-</div>
+        <div class="team">Tonight</div>
+      </div>
+
+      <div class="small">Main Event</div>
     </div>
 
   </div>
