@@ -1,78 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sports Live</title>
+  <title>Sports Hub Pro</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial;
-      background: #0b1220;
+      background: #0a0f1f;
       color: white;
     }
 
     .header {
-      background: #1d4ed8;
-      padding: 18px;
+      background: #2563eb;
+      padding: 16px;
       text-align: center;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
     }
 
-    .menu {
+    .tabs {
       display: flex;
       justify-content: space-around;
       background: #111827;
       padding: 10px;
+      font-size: 13px;
     }
 
-    .menu a {
+    .tabs a {
       color: white;
       text-decoration: none;
-      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .tabs a:hover {
+      background: #1f2937;
     }
 
     .container {
       padding: 15px;
     }
 
-    .live {
-      background: #ef4444;
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      margin-bottom: 8px;
+    .section-title {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 15px;
     }
 
     .card {
       background: #1f2937;
-      margin: 12px 0;
-      padding: 15px;
-      border-radius: 12px;
-      border-left: 5px solid #3b82f6;
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      border-left: 4px solid #3b82f6;
     }
 
-    .match {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      margin-top: 8px;
-    }
-
-    .team {
+    .live {
+      color: #22c55e;
       font-weight: bold;
+      font-size: 12px;
+    }
+
+    .upcoming {
+      color: #f59e0b;
+      font-weight: bold;
+      font-size: 12px;
     }
 
     .score {
+      float: right;
       color: #22c55e;
       font-weight: bold;
-    }
-
-    .small {
-      font-size: 12px;
-      opacity: 0.7;
-      margin-top: 6px;
     }
   </style>
 
@@ -80,9 +79,9 @@
 
 <body>
 
-  <div class="header">🏆 LIVE SPORTS HUB</div>
+  <div class="header">🏆 SPORTS HUB PRO</div>
 
-  <div class="menu">
+  <div class="tabs">
     <a href="index.html">Home</a>
     <a href="football.html">Football</a>
     <a href="basketball.html">Basketball</a>
@@ -91,40 +90,25 @@
 
   <div class="container">
 
+    <div class="section-title">🔥 LIVE MATCHES</div>
+
     <div class="card">
-      <div class="live">LIVE</div>
-
-      <div class="match">
-        <div class="team">Man United</div>
-        <div class="score">2 - 1</div>
-        <div class="team">Liverpool</div>
-      </div>
-
-      <div class="small">Premier League • 75 min</div>
+      <span class="live">LIVE</span>
+      Man United vs Liverpool
+      <span class="score">2 - 1</span>
     </div>
 
     <div class="card">
-      <div class="live">LIVE</div>
-
-      <div class="match">
-        <div class="team">Lakers</div>
-        <div class="score">98 - 95</div>
-        <div class="team">Bulls</div>
-      </div>
-
-      <div class="small">NBA • 4th Quarter</div>
+      <span class="live">LIVE</span>
+      Lakers vs Bulls
+      <span class="score">98 - 95</span>
     </div>
 
+    <div class="section-title">⏰ UPCOMING</div>
+
     <div class="card">
-      <div class="live">UPCOMING</div>
-
-      <div class="match">
-        <div class="team">UFC Fight Night</div>
-        <div class="score">-</div>
-        <div class="team">Tonight</div>
-      </div>
-
-      <div class="small">Main Event</div>
+      <span class="upcoming">SOON</span>
+      UFC Main Event
     </div>
 
   </div>
