@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Live Sports API</title>
+  <title>Sports Pro API</title>
 
   <style>
     body {
@@ -24,48 +24,64 @@
       margin: 10px;
       padding: 12px;
       border-radius: 10px;
+      text-align: left;
+    }
+
+    .status {
+      font-size: 12px;
+      opacity: 0.7;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="top">🏆 LIVE SPORTS API</div>
+  <div class="top">🏆 SPORTS PRO API DASHBOARD</div>
 
-  <h3>Loading live matches...</h3>
+  <p class="status">Loading live data...</p>
 
   <div id="matches"></div>
 
   <script>
-    async function loadData() {
+    const API_URL = "https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d=2024-01-01&s=Soccer";
+
+    async function loadMatches() {
       try {
-        const res = await fetch("https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d=2024-01-01&s=Soccer");
+        const res = await fetch(API_URL);
         const data = await res.json();
 
-        let html = "";
+        let output = "";
 
-        if (data.events) {
-          data.events.forEach(event => {
-            html += `
+        if (data && data.events) {
+
+          data.events.slice(0, 10).forEach(match => {
+            output += `
               <div class="card">
-                <h3>${event.strEvent}</h3>
-                <p>${event.strLeague}</p>
-                <p>${event.dateEvent}</p>
+                <h3>${match.strEvent || "Unknown Match"}</h3>
+                <p>🏆 League: ${match.strLeague || "N/A"}</p>
+                <p>📅 Date: ${match.dateEvent || "N/A"}</p>
+                <p>🏟️ Status: ${match.strStatus || "Scheduled"}</p>
               </div>
             `;
           });
+
         } else {
-          html = "<p>No live data found</p>";
+          output = "<div class='card'>No data available right now</div>";
         }
 
-        document.getElementById("matches").innerHTML = html;
+        document.getElementById("matches").innerHTML = output;
+        document.querySelector(".status").innerText = "Live data loaded ✔";
 
-      } catch (error) {
-        document.getElementById("matches").innerHTML = "<p>Error loading API</p>";
+      } catch (err) {
+        document.getElementById("matches").innerHTML =
+          "<div class='card'>API error — retrying...</div>";
       }
     }
 
-    loadData();
+    loadMatches();
+
+    // AUTO REFRESH every 60 seconds (PRO FEATURE)
+    setInterval(loadMatches, 60000);
   </script>
 
 </body>
