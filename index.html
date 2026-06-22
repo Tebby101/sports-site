@@ -6,30 +6,34 @@
     body {
       font-family: Arial;
       margin: 0;
-      background: #0f172a;
+      background: #0b1220;
       color: white;
     }
 
     header {
-      background: #1e3a8a;
-      padding: 20px;
+      background: #1d4ed8;
+      padding: 18px;
       text-align: center;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: bold;
     }
 
     .container {
-      padding: 20px;
+      padding: 15px;
     }
 
-    .card {
+    a.card {
+      display: block;
       background: #1f2937;
-      margin: 10px 0;
+      margin: 12px 0;
       padding: 15px;
       border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
     }
 
-    .card:hover {
+    a.card:hover {
       background: #374151;
     }
   </style>
@@ -37,14 +41,14 @@
 
 <body>
 
-  <header>
-    🏆 My Sports Website
-  </header>
+  <header>🏆 My Sports Website</header>
 
   <div class="container">
-    <div class="card">⚽ Football</div>
-    <div class="card">🏀 Basketball</div>
-    <div class="card">🥊 UFC</div>
+
+    <a class="card" href="#">⚽ Football</a>
+    <a class="card" href="#">🏀 Basketball</a>
+    <a class="card" href="#">🥊 UFC</a>
+
   </div>
 
 </body>
