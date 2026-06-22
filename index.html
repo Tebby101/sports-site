@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sports Pro API</title>
+  <title>VIP Sports Hub (Legal)</title>
 
   <style>
     body {
@@ -9,14 +9,27 @@
       font-family: Arial;
       background: #0b1220;
       color: white;
-      text-align: center;
     }
 
     .top {
       background: #1d4ed8;
-      padding: 15px;
+      padding: 16px;
+      text-align: center;
       font-size: 20px;
       font-weight: bold;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      background: #111827;
+      padding: 10px;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
     }
 
     .card {
@@ -24,65 +37,36 @@
       margin: 10px;
       padding: 12px;
       border-radius: 10px;
-      text-align: left;
     }
 
-    .status {
+    .live {
+      color: #22c55e;
+      font-weight: bold;
       font-size: 12px;
-      opacity: 0.7;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="top">🏆 SPORTS PRO API DASHBOARD</div>
+  <div class="top">🏆 VIP SPORTS HUB (LEGAL)</div>
 
-  <p class="status">Loading live data...</p>
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="football.html">Football</a>
+    <a href="basketball.html">Basketball</a>
+    <a href="ufc.html">UFC</a>
+  </div>
 
-  <div id="matches"></div>
+  <div class="card">
+    <div class="live">LIVE</div>
+    Man United vs Liverpool — 2:1 (Demo / API later)
+  </div>
 
-  <script>
-    const API_URL = "https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d=2024-01-01&s=Soccer";
-
-    async function loadMatches() {
-      try {
-        const res = await fetch(API_URL);
-        const data = await res.json();
-
-        let output = "";
-
-        if (data && data.events) {
-
-          data.events.slice(0, 10).forEach(match => {
-            output += `
-              <div class="card">
-                <h3>${match.strEvent || "Unknown Match"}</h3>
-                <p>🏆 League: ${match.strLeague || "N/A"}</p>
-                <p>📅 Date: ${match.dateEvent || "N/A"}</p>
-                <p>🏟️ Status: ${match.strStatus || "Scheduled"}</p>
-              </div>
-            `;
-          });
-
-        } else {
-          output = "<div class='card'>No data available right now</div>";
-        }
-
-        document.getElementById("matches").innerHTML = output;
-        document.querySelector(".status").innerText = "Live data loaded ✔";
-
-      } catch (err) {
-        document.getElementById("matches").innerHTML =
-          "<div class='card'>API error — retrying...</div>";
-      }
-    }
-
-    loadMatches();
-
-    // AUTO REFRESH every 60 seconds (PRO FEATURE)
-    setInterval(loadMatches, 60000);
-  </script>
+  <div class="card">
+    <div class="live">LIVE</div>
+    Lakers vs Bulls — 98:95 (Demo / API later)
+  </div>
 
 </body>
 </html>
