@@ -4,51 +4,55 @@
   <title>Sports Home</title>
   <style>
     body {
-      font-family: Arial;
       margin: 0;
+      font-family: Arial;
       background: #0b1220;
       color: white;
     }
 
-    header {
+    .topbar {
       background: #1d4ed8;
-      padding: 18px;
+      padding: 15px;
       text-align: center;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
     }
 
-    .container {
-      padding: 15px;
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      background: #111827;
+      padding: 10px;
     }
 
-    a.card {
-      display: block;
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .card {
       background: #1f2937;
-      margin: 12px 0;
+      margin: 15px;
       padding: 15px;
       border-radius: 10px;
-      text-decoration: none;
-      color: white;
-      font-size: 18px;
-    }
-
-    a.card:hover {
-      background: #374151;
     }
   </style>
 </head>
 
 <body>
 
-  <header>🏆 My Sports Website</header>
+  <div class="topbar">🏆 My Sports App</div>
 
-  <div class="container">
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="football.html">Football</a>
+    <a href="basketball.html">Basketball</a>
+    <a href="ufc.html">UFC</a>
+  </div>
 
-    <a class="card" href="football.html">⚽ Football</a>
-    <a class="card" href="basketball.html">🏀 Basketball</a>
-    <a class="card" href="ufc.html">🥊 UFC</a>
-
+  <div class="card">
+    Welcome to your sports website 🔥
   </div>
 
 </body>
